@@ -7,11 +7,12 @@ import com.aliyuncs.alidns.model.v20150109.*;
 import com.aliyuncs.profile.DefaultProfile;
 import com.aliyuncs.profile.IClientProfile;
 import com.lmhy.rpi.utils.EnvUtils;
-import lombok.extern.slf4j.Slf4j;
-import org.apache.commons.lang3.StringUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
-@Slf4j
 public class Aliyun {
+    private static Logger log = LoggerFactory.getLogger(Aliyun.class);
+
     private static final String REGION_ID = "cn-hangzhou";
     private static String accessKeyId;
     private static String accessKeySecret;
@@ -51,7 +52,7 @@ public class Aliyun {
     public static boolean updateIp(String ip, boolean isDirect) {
         if (!isDirect) {
             getDomainInfo();
-            if (StringUtils.equals(ip, lastIp)) {
+            if (ip.equals(lastIp)) {
                 return true;
             }
         }

@@ -3,13 +3,13 @@ package com.lmhy.rpi;
 
 import com.lmhy.rpi.aliyun.Aliyun;
 import com.lmhy.rpi.utils.IpUtils;
-import lombok.extern.slf4j.Slf4j;
-import org.apache.commons.lang3.ArrayUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
-@Slf4j
 public class Main {
+    private static Logger log = LoggerFactory.getLogger(Main.class);
     public static void main(String[] args) {
-        if (ArrayUtils.isEmpty(args)) {
+        if (args==null || args.length==0) {
             log.warn("Please input params");
             return;
         }

@@ -1,15 +1,15 @@
 package com.lmhy.rpi.utils;
 
-import lombok.extern.slf4j.Slf4j;
 
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.Properties;
 
-@Slf4j
 public class EnvUtils {
+    private static Logger log = LoggerFactory.getLogger(EnvUtils.class);
     private static Properties prop;
 
     static {
