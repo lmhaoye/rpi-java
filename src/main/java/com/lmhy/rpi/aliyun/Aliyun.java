@@ -23,7 +23,6 @@ public class Aliyun {
     private static final String RECORD_ID = "4086802960029696";
     private static IAcsClient client;
 
-    private static String lastIp = "";
 
     static {
         accessKeyId = EnvUtils.getProp("aliyun.accesskey.id");
@@ -39,22 +38,22 @@ public class Aliyun {
         DescribeDomainRecordInfoResponse response;
         try {
             response = client.getAcsResponse(request);
-            System.out.println(JSON.toJSON(response));
-            lastIp = response.getValue();
+//            System.out.println(JSON.toJSON(response));
+            String lastIp = response.getValue();
             log.info("[aliyun] ip get :" + lastIp);
-            return lastIp;
+            return lastIp.trim();
         } catch (Exception e) {
             e.printStackTrace();
         }
         return "";
     }
 
-    public static boolean updateIp(String ip, boolean isDirect) {
-        if (!isDirect) {
-            getDomainInfo();
-            if (ip.equals(lastIp)) {
-                return true;
-            }
+    public static boolean updateIp(String ip) {
+        String lastIp = getDomainInfo();
+        log.info("[aliyun] --{}---{}--", ip, lastIp);
+        log.info("[aliyun]{}", ip.equals(lastIp));
+        if (ip.equals(lastIp)) {
+            return true;
         }
         UpdateDomainRecordRequest request = new UpdateDomainRecordRequest();
         request.setRecordId(RECORD_ID);

@@ -8,8 +8,9 @@ import org.slf4j.LoggerFactory;
 
 public class Main {
     private static Logger log = LoggerFactory.getLogger(Main.class);
+
     public static void main(String[] args) {
-        if (args==null || args.length==0) {
+        if (args == null || args.length == 0) {
             log.warn("Please input params");
             return;
         }
@@ -22,7 +23,7 @@ public class Main {
             break;
             case "alidns": {
                 String ip = IpUtils.getPublicIp();
-                boolean result = Aliyun.updateIp(ip, false);
+                boolean result = Aliyun.updateIp(ip);
                 log.info("[alidns]修改解析结果：{}", result);
             }
         }
