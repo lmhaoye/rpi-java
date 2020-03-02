@@ -16,11 +16,11 @@ public class Aliyun {
     private static final String REGION_ID = "cn-hangzhou";
     private static String accessKeyId;
     private static String accessKeySecret;
-//    private static String accessKeyId = "LTAIgx4gRwOdGDyP";
-//    private static String accessKeySecret = "lhO72l4zvD3C8prI1aWcfCROXdCrmX";
+//    private static String accessKeyId = "x";
+//    private static String accessKeySecret = "x";
 
-    private static final String DOMAIN = "lmhaoye.com";
-    private static final String RECORD_ID = "4086802960029696";
+    private static final String DOMAIN = "x.com";
+    private static final String RECORD_ID = "x";
     private static IAcsClient client;
 
 
